@@ -6,38 +6,36 @@ body {
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
-    text-transform: uppercase; /* 영문 대문자로 통일 */
+    text-transform: uppercase;
+    background-color: #1a1a1a;
+    overflow: hidden; /* 애니메이션 중 스크롤 방지 */
 }
 
-#text-container {
+#text-input {
+    padding: 15px;
+    font-size: 1.5em;
+    margin-bottom: 50px;
+    width: 80%;
+    text-align: center;
+    border: 2px solid #555;
+    background-color: #333;
+    color: white;
+    box-sizing: border-box;
+}
+
+#text-output {
     font-size: 10vw;
     font-weight: 800;
     line-height: 1;
     display: flex;
-    /* 영문에서는 letter-spacing을 조작하여 늘어나는 느낌을 줍니다. */
-    letter-spacing: -0.05em;
-    transition: letter-spacing 0.5s ease-in-out;
-    margin-bottom: 50px;
+    color: white;
+    /* 초기 letter-spacing은 0으로 설정, 애니메이션으로 조절 */
+    letter-spacing: 0;
 }
 
 .letter-box {
     display: inline-block;
-    position: relative;
-    /* 애니메이션 시 부드러운 전환을 위한 설정 */
-    transition: transform 0.5s ease-in-out;
-    transform-origin: bottom center; /* 아래쪽을 기준으로 늘어나도록 설정 */
-}
-
-/* -------------------------------------
-   늘이기 상태 CSS (JS가 .is-stretched 클래스를 토글합니다)
-   ------------------------------------- */
-
-#text-container.is-stretched {
-    /* 글자 간격을 크게 늘려 한글의 자소 분리 느낌을 모방 */
-    letter-spacing: 0.5em;
-}
-
-.is-stretched .letter-box {
-    /* 개별 문자를 수직으로 늘이기 */
-    transform: scaleY(2);
+    /* 늘어날 때 기준점: bottom center (아래쪽)으로 고정 */
+    transform-origin: 50% 100%;
+    will-change: transform, margin; /* 성능 최적화를 위한 힌트 */
 }
