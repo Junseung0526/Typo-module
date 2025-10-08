@@ -1,0 +1,23 @@
+.textOutput {
+    font-size: 8vw;
+    font-weight: 800;
+    line-height: 1;
+    display: flex;
+    color: white;
+    letter-spacing: 0;
+    padding: 2rem;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.letterBox {
+    display: inline-block;
+    transform-origin: 50% 100%;
+    will-change: transform, margin;
+}
+
+.space {
+    margin-right: 0.5em;
+}
