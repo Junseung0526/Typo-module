@@ -1,23 +1,9 @@
 .appContainer {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     height: 100vh;
-    background-color: #1a1a1a;
-}
-
-.mainContent {
-    display: flex;
-    flex-grow: 1;
-    overflow: hidden; /* Prevent panels from overflowing */
-}
-
-.controlsPanel {
-    width: 350px;
-    flex-shrink: 0; /* Prevent panel from shrinking */
-}
-
-.displayPanel {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
+    width: 100vw;
+    position: relative; /* 자식 요소의 absolute 포지셔닝을 위해 */
 }

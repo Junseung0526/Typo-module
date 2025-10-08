@@ -1,23 +1,43 @@
 import React, { useState } from 'react';
-import Header from './components/Header';
 import Controls from './components/Controls';
 import TypographyAnimation from './components/TypographyAnimation';
+import Modal from './components/Modal';
 import styles from './App.module.css';
 
 function App() {
-    const [text, setText] = useState('MOTION EFFECT');
+    const [animatedText, setAnimatedText] = useState('PRESS ENTER');
+    const [modalContent, setModalContent] = useState({ isOpen: false, url: '', name: '' });
+
+    const handleTextSubmit = (submittedText) => {
+        const text = submittedText.toLowerCase().trim();
+        const sites = {
+            google: 'https://www.google.com',
+            naver: 'https://www.naver.com',
+            github: 'https://www.github.com'
+        };
+
+        if (sites[text]) {
+            setModalContent({ isOpen: true, url: sites[text], name: text });
+        } else {
+            setAnimatedText(submittedText);
+        }
+    };
+
+    const closeModal = () => {
+        setModalContent({ isOpen: false, url: '', name: '' });
+    };
 
     return (
         <div className={styles.appContainer}>
-            <Header />
-            <main className={styles.mainContent}>
-                <div className={styles.controlsPanel}>
-                    <Controls text={text} setText={setText} />
-                </div>
-                <div className={styles.displayPanel}>
-                    <TypographyAnimation text={text} />
-                </div>
-            </main>
+            <TypographyAnimation text={animatedText} />
+            <Controls onTextSubmit={handleTextSubmit} initialText={animatedText} />
+            {modalContent.isOpen && (
+                <Modal
+                    url={modalContent.url}
+                    name={modalContent.name}
+                    onClose={closeModal}
+                />
+            )}
         </div>
     );
 }

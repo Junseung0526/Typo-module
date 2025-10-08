@@ -1,21 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Controls.module.css';
 
-const Controls = ({ text, setText }) => {
+const Controls = ({ onTextSubmit, initialText }) => {
+    const [inputValue, setInputValue] = useState(initialText);
+
     const handleInputChange = (event) => {
-        setText(event.target.value);
+        setInputValue(event.target.value);
+    };
+
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            onTextSubmit(inputValue);
+        }
     };
 
     return (
         <div className={styles.controlsContainer}>
-            <label htmlFor="text-input" className={styles.label}>Your Text</label>
             <input
                 id="text-input"
                 type="text"
                 className={styles.textInput}
-                placeholder="Animate this..."
-                value={text}
+                placeholder="Type something and press enter..."
+                value={inputValue}
                 onChange={handleInputChange}
+                onKeyDown={handleKeyDown}
+                autoComplete="off"
             />
         </div>
     );

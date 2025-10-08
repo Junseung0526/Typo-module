@@ -1,23 +1,42 @@
 .textOutput {
-    font-size: 8vw;
+    font-size: 10vw;
     font-weight: 800;
-    line-height: 1;
+    line-height: 1.1; /* 줄 간격 살짝 추가 */
     display: flex;
+    flex-wrap: wrap; /* 자동 줄바꿈 활성화 */
     color: white;
-    letter-spacing: 0;
+    letter-spacing: 0.02em;
     padding: 2rem;
-    flex-grow: 1;
-    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
 .letterBox {
     display: inline-block;
     transform-origin: 50% 100%;
-    will-change: transform, margin;
+    will-change: transform, margin, opacity;
 }
 
 .space {
-    margin-right: 0.5em;
+    padding: 0 0.2em;
+}
+
+.placeholder {
+    font-size: 5vw;
+    font-weight: 600;
+    color: #444;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
