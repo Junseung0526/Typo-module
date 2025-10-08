@@ -4,12 +4,12 @@ import TypographyAnimation from './components/TypographyAnimation';
 import styles from './App.module.css';
 
 function App() {
-    const [text, setText] = useState('SIMPLE');
+    const [animatedText, setAnimatedText] = useState('PRESS ENTER');
 
     return (
         <div className={styles.appContainer}>
-            <TypographyAnimation text={text} />
-            <Controls text={text} setText={setText} />
+            <TypographyAnimation text={animatedText} />
+            <Controls setAnimatedText={setAnimatedText} initialText={animatedText} />
         </div>
     );
 }
