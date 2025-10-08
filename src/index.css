@@ -5,6 +5,7 @@ body {
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #1a1a1a;
-    color: white;
+    background-color: #121212; /* 더 깊은 검은색으로 변경 */
+    color: #e0e0e0; /* 기본 텍스트 색상 변경 */
+    overflow: hidden;
 }

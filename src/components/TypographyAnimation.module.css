@@ -1,23 +1,41 @@
 .textOutput {
-    font-size: 8vw;
+    font-size: 10vw;
     font-weight: 800;
     line-height: 1;
     display: flex;
     color: white;
-    letter-spacing: 0;
+    letter-spacing: 0.02em; /* 자간 살짝 추가 */
     padding: 2rem;
-    flex-grow: 1;
-    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
 .letterBox {
     display: inline-block;
     transform-origin: 50% 100%;
-    will-change: transform, margin;
+    will-change: transform, margin, opacity;
 }
 
 .space {
-    margin-right: 0.5em;
+    padding: 0 0.2em;
+}
+
+.placeholder {
+    font-size: 5vw; /* 다른 텍스트보다 작게 */
+    font-weight: 600;
+    color: #444; /* 더 어두운 색상 */
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

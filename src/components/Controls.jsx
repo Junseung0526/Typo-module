@@ -8,14 +8,14 @@ const Controls = ({ text, setText }) => {
 
     return (
         <div className={styles.controlsContainer}>
-            <label htmlFor="text-input" className={styles.label}>Your Text</label>
             <input
                 id="text-input"
                 type="text"
                 className={styles.textInput}
-                placeholder="Animate this..."
+                placeholder="Type something..."
                 value={text}
                 onChange={handleInputChange}
+                autoComplete="off"
             />
         </div>
     );
