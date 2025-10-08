@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Controls.module.css';
 
-const Controls = ({ setAnimatedText, initialText }) => {
+const Controls = ({ onTextSubmit, initialText }) => {
     const [inputValue, setInputValue] = useState(initialText);
 
     const handleInputChange = (event) => {
@@ -10,8 +10,8 @@ const Controls = ({ setAnimatedText, initialText }) => {
 
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
-            event.preventDefault(); // 폼 제출 등 기본 동작 방지
-            setAnimatedText(inputValue);
+            event.preventDefault();
+            onTextSubmit(inputValue);
         }
     };
 
@@ -21,7 +21,7 @@ const Controls = ({ setAnimatedText, initialText }) => {
                 id="text-input"
                 type="text"
                 className={styles.textInput}
-                placeholder="Type something and press Enter..."
+                placeholder="Type something and press enter..."
                 value={inputValue}
                 onChange={handleInputChange}
                 onKeyDown={handleKeyDown}

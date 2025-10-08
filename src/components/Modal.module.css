@@ -1,0 +1,82 @@
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal {
+    background-color: #1f1f1f;
+    padding: 2rem 2.5rem;
+    border-radius: 12px;
+    border: 1px solid #333;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: slideIn 0.4s ease-out;
+}
+
+.closeButton {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.closeButton:hover {
+    color: #fff;
+}
+
+.title {
+    margin-top: 0;
+    font-size: 1.8rem;
+    color: #fff;
+}
+
+.description {
+    color: #aaa;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.linkButton {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    margin-top: 2rem;
+    background-color: #e52e71; /* A nice accent color */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.linkButton:hover {
+    background-color: #ff4b8d;
+    transform: translateY(-2px);
+}
