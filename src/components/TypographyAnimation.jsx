@@ -1,6 +1,7 @@
 import React, { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import styles from './TypographyAnimation.module.css';
+import {random} from "gsap/gsap-core";
 
 const TypographyAnimation = ({ text }) => {
     const component = useRef(null);
@@ -16,7 +17,7 @@ const TypographyAnimation = ({ text }) => {
                 letterRefs.current.forEach((letter, index) => {
                     if (letter) {
                         tl.fromTo(letter, {
-                            scaleY: 2.5,
+                            scaleY: 1.5,
                             scaleX: 1.5,
                             rotation: -15,
                             opacity: 0,
@@ -24,7 +25,7 @@ const TypographyAnimation = ({ text }) => {
                         }, {
                             scaleY: 1,
                             scaleX: 1,
-                            rotation: 0,
+                            rotation: random(-10, 10),
                             opacity: 1,
                             marginBottom: 0,
                             duration: 0.8,

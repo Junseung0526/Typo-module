@@ -3,7 +3,6 @@ import styles from './Modal.module.css';
 
 const Modal = ({ url, name, onClose }) => {
 
-    // ESC 키로 모달 닫기
     useEffect(() => {
         const handleKeyDown = (event) => {
             if (event.key === 'Escape') {
